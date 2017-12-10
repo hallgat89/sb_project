@@ -20,6 +20,7 @@ public class MainController {
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public ModelAndView index() {
         ModelAndView mv=new ModelAndView("index");
+        mv.addObject("name","World");
         mv.addObject("noteslist",noteService.getAllNotes());
         return mv;
     }
