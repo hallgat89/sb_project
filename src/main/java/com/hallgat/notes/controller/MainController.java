@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
@@ -17,8 +18,10 @@ public class MainController {
     INoteService noteService;
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
-    public String index(Model model) {
-        return "index";
+    public ModelAndView index() {
+        ModelAndView mv=new ModelAndView("index");
+        mv.addObject("noteslist",noteService.getAllNotes());
+        return mv;
     }
 
     @RequestMapping(path = "/save", method = RequestMethod.PUT)

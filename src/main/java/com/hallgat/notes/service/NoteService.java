@@ -10,6 +10,7 @@ import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class NoteService implements INoteService {
@@ -22,7 +23,7 @@ public class NoteService implements INoteService {
 
     @Override
     public List<NoteView> getAllNotes() {
-        throw new RuntimeException("not implemented");
+        return noteDao.getAllNotes().stream().map(n -> conversionService.convert(n, NoteView.class)).collect(Collectors.toList());
     }
 
     @Override
