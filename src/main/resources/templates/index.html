@@ -5,15 +5,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<form action="/save" method="PUT" modelAttribute="createRequest">
-    <input type="text" name="note" id="note"/>
-    <input type="submit" />
+<form action="/save" method="POST" th:object="${crequest}" th:action="@{/save}" modelAttribute="createRequest">
+    <input type="text" name="note" th:field="*{note}" id="note"/>
+    <input type="submit"/>
 </form>
 <p th:text="'Hello, ' + ${name} + '!'"/>
-<c:forEach var="note" items="${noteslist}" varStatus="i">
-    <c:set var="noteId" value="${note.id}"/>
-    <c:set var="noteText" value="${note.note}"/>
-    <span>${noteText}</span>
-</c:forEach>
+
+<div id="noteslist">
+    <form th:each="note : ${noteslist}">
+        <span th:text="${note.note}"></span>
+    </form>
+</div>
+
 </body>
 </html>
