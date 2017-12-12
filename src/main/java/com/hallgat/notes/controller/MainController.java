@@ -26,9 +26,6 @@ public class MainController {
         mv.addObject("name", "World");
 
         List<NoteView> testList = noteService.getAllNotes();
-        testList.add(new NoteView(666, "Valami"));
-        testList.add(new NoteView(777, "Valami2"));
-
         mv.addObject("notesList", noteService.getAllNotes());
         mv.addObject("crequest", new CreateNoteRequest());
         mv.addObject("drequest", new DeleteNoteRequest());

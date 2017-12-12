@@ -12,8 +12,8 @@
 <p th:text="'Hello, ' + ${name} + '!'"/>
 
 <div id="noteslist">
-    <form th:each="note : ${noteslist}">
-        <span th:text="${note.note}"></span>
+    <form th:each="item : ${notesList}">
+        <span th:text="${item.note}"></span>
     </form>
 </div>
 
