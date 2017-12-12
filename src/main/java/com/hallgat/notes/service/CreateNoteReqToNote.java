@@ -6,7 +6,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NoteConversionService implements Converter<CreateNoteRequest, Note> {
+public class CreateNoteReqToNote implements Converter<CreateNoteRequest, Note> {
     @Override
     public Note convert(CreateNoteRequest createNoteRequest) {
         return new Note(createNoteRequest.getNote());

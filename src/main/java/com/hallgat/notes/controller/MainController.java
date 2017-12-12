@@ -39,7 +39,6 @@ public class MainController {
     public ModelAndView saveNote(Model model, @ModelAttribute("request") CreateNoteRequest request) {
         noteService.SaveNote(request);
         ModelAndView mv = new ModelAndView("redirect:/");
-        mv.clear();
         return mv;
     }
 
@@ -47,7 +46,6 @@ public class MainController {
     public ModelAndView deleteNote(Model model, @ModelAttribute("request") DeleteNoteRequest request) {
         noteService.DeleteNote(request);
         ModelAndView mv = new ModelAndView("redirect:/");
-        mv.clear();
         return mv;
     }
 
