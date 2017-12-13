@@ -6,7 +6,6 @@ import com.hallgat.notes.requests.DeleteNoteRequest;
 import com.hallgat.notes.service.INoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,14 +32,14 @@ public class MainController {
     }
 
     @RequestMapping(path = "/save", method = RequestMethod.POST)
-    public ModelAndView saveNote(Model model, @ModelAttribute("request") CreateNoteRequest request) {
+    public ModelAndView saveNote(@ModelAttribute("request") CreateNoteRequest request) {
         noteService.SaveNote(request);
         ModelAndView mv = new ModelAndView("redirect:/");
         return mv;
     }
 
     @RequestMapping(path = "/del", method = RequestMethod.POST)
-    public ModelAndView deleteNote(Model model, @ModelAttribute("request") DeleteNoteRequest request) {
+    public ModelAndView deleteNote(@ModelAttribute("request") DeleteNoteRequest request) {
         noteService.DeleteNote(request);
         ModelAndView mv = new ModelAndView("redirect:/");
         return mv;

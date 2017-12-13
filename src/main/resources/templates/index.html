@@ -5,16 +5,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<form action="/save" method="POST" th:object="${crequest}" th:action="@{/save}" modelAttribute="createRequest">
+<form method="POST" th:object="${crequest}" th:action="@{/save}">
     <input type="text" name="note" th:field="*{note}" id="note"/>
     <input type="submit"/>
 </form>
 <p th:text="'Hello, ' + ${name} + '!'"/>
 
 <div id="noteslist">
-    <form th:each="item:${notesList}" method="POST" th:object="${drequest}" th:action="@{/del}">
-        <span><label th:text="${item.id}"/>-<label th:text="${item.note}"/><input type="submit"/><input type="hidden" id="id" th:field="*{id}" value="${item.id}"  /></span>
-    </form>
+    <div th:each="item:${notesList}">
+        <form method="POST" th:object="${drequest}" th:action="@{/del}">
+            <span><label th:text="${item.id}"/>-<label th:text="${item.note}"/>
+                <!--setting the value is a fix for the value=0 problem when th:field is present-->
+                <input type="hidden" id="id" name="id" value=${item.id}" th:field="*{id}"/>
+                <input type="submit"/></span>
+        </form>
+    </div>
 </div>
 
 </body>
