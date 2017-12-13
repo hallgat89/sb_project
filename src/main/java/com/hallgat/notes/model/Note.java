@@ -18,23 +18,12 @@ public class Note {
     @Getter
     @Setter
     private String note;
-    @Enumerated(EnumType.STRING)
-    @Getter
-    @Setter
-    private NoteType type;
-
-    public Note(String note, NoteType type) {
-        this.note = note;
-        this.type = type;
-    }
 
     public Note(String note) {
         this.note = note;
-        this.type = NoteType.DATA;
     }
 
     public Note(int id) {
         this.id = id;
-        this.type = NoteType.DATA;
     }
 }
