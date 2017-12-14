@@ -17,7 +17,7 @@
             <span><label th:text="${item.id}"/>-<label th:text="${item.note}"/>
                 <!--setting the value is a fix for the value=0 problem when th:field is present-->
                 <input type="hidden" id="id" name="id" th:value="${item.id}" th:field="*{id}"/>
-                <input type="submit"/></span>
+                <!--input type="submit"/--></span>
         </form>
     </div>
 </div>
