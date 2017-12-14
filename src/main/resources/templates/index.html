@@ -21,6 +21,10 @@
         </form>
     </div>
 </div>
-
+<span>Delete note:</span>
+<form method="POST" th:object="${drequest}" th:action="@{/del}">
+    <input type="number" min="1" th:field="*{id}"/>
+    <input type="submit"/>
+</form>
 </body>
 </html>
