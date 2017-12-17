@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -32,17 +33,15 @@ public class MainController {
     }
 
     @RequestMapping(path = "/api/save", method = RequestMethod.POST)
-    public ModelAndView saveNote(@ModelAttribute("request") CreateNoteRequest request) {
+    public RedirectView saveNote(@ModelAttribute("request") CreateNoteRequest request) {
         noteService.saveNote(request);
-        ModelAndView mv = new ModelAndView("redirect:/");
-        return mv;
+        return new RedirectView("/");
     }
 
     @RequestMapping(path = "/api/del", method = RequestMethod.POST)
-    public ModelAndView deleteNote(@ModelAttribute("request") DeleteNoteRequest request) {
+    public RedirectView deleteNote(@ModelAttribute("request") DeleteNoteRequest request) {
         noteService.deleteNote(request);
-        ModelAndView mv = new ModelAndView("redirect:/");
-        return mv;
+        return new RedirectView("/");
     }
 
 }
