@@ -31,16 +31,16 @@ public class MainController {
         return mv;
     }
 
-    @RequestMapping(path = "/save", method = RequestMethod.POST)
+    @RequestMapping(path = "/api/save", method = RequestMethod.POST)
     public ModelAndView saveNote(@ModelAttribute("request") CreateNoteRequest request) {
-        noteService.SaveNote(request);
+        noteService.saveNote(request);
         ModelAndView mv = new ModelAndView("redirect:/");
         return mv;
     }
 
-    @RequestMapping(path = "/del", method = RequestMethod.POST)
+    @RequestMapping(path = "/api/del", method = RequestMethod.POST)
     public ModelAndView deleteNote(@ModelAttribute("request") DeleteNoteRequest request) {
-        noteService.DeleteNote(request);
+        noteService.deleteNote(request);
         ModelAndView mv = new ModelAndView("redirect:/");
         return mv;
     }

@@ -27,12 +27,12 @@ public class NoteService implements INoteService {
     }
 
     @Override
-    public void SaveNote(CreateNoteRequest request) {
+    public void saveNote(CreateNoteRequest request) {
         noteDao.addNote(conversionService.convert(request, Note.class));
     }
 
     @Override
-    public void DeleteNote(DeleteNoteRequest request) {
+    public void deleteNote(DeleteNoteRequest request) {
         noteDao.deleteNote(conversionService.convert(request, Note.class));
     }
 
