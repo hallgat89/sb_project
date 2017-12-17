@@ -32,13 +32,13 @@ public class MainController {
         return mv;
     }
 
-    @RequestMapping(path = "/api/save", method = RequestMethod.POST)
+    @RequestMapping(path = "/api/save", method = RequestMethod.PUT)
     public RedirectView saveNote(@ModelAttribute("request") CreateNoteRequest request) {
         noteService.saveNote(request);
         return new RedirectView("/");
     }
 
-    @RequestMapping(path = "/api/del", method = RequestMethod.POST)
+    @RequestMapping(path = "/api/del", method = RequestMethod.DELETE)
     public RedirectView deleteNote(@ModelAttribute("request") DeleteNoteRequest request) {
         noteService.deleteNote(request);
         return new RedirectView("/");
